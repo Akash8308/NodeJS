@@ -37,3 +37,4 @@ build/
 ### Mac OS ###
 .DS_Store
 /Programs/2.3 NPM/node_modules
+/Programs/2.3 QR Code Project/node_modules
