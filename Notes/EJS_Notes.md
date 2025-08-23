@@ -2,7 +2,7 @@
 
     <%= var %> is used to render dynamic variables in view (HTML), similar to what we have in angular "{{}}".
     
-    <% console.log("Hello World!!") %>
+    <% console.log("Hello World!!") %> , used to execute code
     
     <%- <h1> Hello </h1> %> used to send html, here only Hello will be rendered on page.
     
@@ -87,3 +87,37 @@
     </body>
     
     </html>
+
+
+### Handeling unavailable data variables
+-   When we pass data to a view
+    -   ex:
+
+            index.js
+            res.render("index.ejs", data);
+
+            view.ejs
+            <h1><%= title %></h1>
+    
+What if we forget to send this data, we are accessing this data in view (title).
+we can handle this situation using "locals".
+locals is always available and can be used as locals.title which will not give error and crash our site.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
