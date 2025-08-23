@@ -25,7 +25,7 @@
 # ExpressJs
 - It is a javaScript framework which allows us to build backend.
 
-### Requests
+## Requests
 - GET: used to request resource
 - POST: Sending resource
 - PUT: Replace resource

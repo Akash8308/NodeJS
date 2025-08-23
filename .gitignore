@@ -40,3 +40,5 @@ build/
 /Programs/2.3 QR Code Project/node_modules
 /Programs/3.1 Express server/node_modules
 /Programs/3.1.1 Express Server - HTTP Requests/node_modules
+/Programs/3.2 - 3.3 HTTP Requests & Postman/node_modules
+/Programs/3.4 Middleware/node_modules
