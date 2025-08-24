@@ -89,7 +89,7 @@
     </html>
 
 
-### Handeling unavailable data variables
+### Handling unavailable data variables
 -   When we pass data to a view
     -   ex:
 
@@ -101,7 +101,7 @@
     
 What if we forget to send this data, we are accessing this data in view (title).
 we can handle this situation using "locals".
-locals is always available and can be used as locals.title which will not give error and crash our site.
+locals is always available and can be used as locals. title which will not give error and crash our site.
 
 
 
