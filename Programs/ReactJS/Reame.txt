@@ -1,0 +1,2 @@
+This folder contains files (or Files structure) from codesandbox.io
+To run these files just import them to codesandbox.io
