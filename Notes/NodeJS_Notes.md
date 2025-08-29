@@ -1,29 +1,81 @@
-# **NodeJS**
+---
 
-## **What is NodeJS**
+## 🔹 What is Node.js?
 
-- NodeJS is An Asynchronous event-driven **JavaScript runtime, Node.js is designed to build scalable network applications**
-- **JavaScript was created to run in browser which meant we cannot create any program that's not website**
-- **NodeJS uses V8 engine - comes from chromium which uses C & C++ - It is super powerful and powers chrome browser**
-- **It Allows us to create Applications using JavaScript**
-- **When strictly speaking, NodeJS is not framework it is a RUNTIME ENVIROMENT.**
+- **Node.js** is an **asynchronous, event-driven JavaScript runtime** built on **Chrome’s V8 engine**.
+- Designed for **building scalable network applications**.
+- Originally, **JavaScript only ran inside browsers** → Node.js allows us to use JavaScript **outside the browser**.
+- **V8 engine (C++ based)** executes JavaScript code at high speed.
+- **Node.js is not a framework** → it’s a **runtime environment**.
 
-### **What is NPM**
+---
 
-- **NPM is Node Package Manager created by Git Organization**
-- **It has Different tools built in it**
-- **It comes pre-bundled with NodeJS**
+## 🔹 What is NPM?
 
-### **CJS - Common JS**
+- **NPM (Node Package Manager)** is the default **package manager** for Node.js.
+- It allows developers to **install, share, and manage third-party packages**.
+- Comes **pre-bundled with Node.js**.
+- Owned by **npm, Inc.**, which is now part of **GitHub (Microsoft)**.
 
-- **it uses require method to get hold of.**
+---
 
-### **ESM - ECMAScript**
+## 🔹 Module Systems in Node.js
 
-- **After Node v12 Node has enabled ECMAScript Modules**
-- **This enables us to use import instead of require which provides standardized way of using JavaScript to be consistent on the front-end and back-end**
+### 1. CommonJS (CJS)
 
-### **Using ESM**
+- **Default module system** in Node.js.
+- Uses `require()` to import and `module.exports` to export.
 
-- **To use ESM we have to add "type": "module" property in package.json**
-- **By Default we use CommonJS**
+Example:
+
+```jsx
+// math.js
+const pi = 3.14;
+module.exports = pi;
+
+// index.js
+const pi = require("./math");
+console.log(pi);
+
+```
+
+---
+
+### 2. ECMAScript Modules (ESM)
+
+- Since **Node.js v12**, support for **ESM (import/export syntax)** was added.
+- Provides a **standardized way** to write modules, same as front-end JavaScript.
+
+Example:
+
+```jsx
+// math.js
+export const pi = 3.14;
+
+// index.js
+import { pi } from "./math.js";
+console.log(pi);
+
+```
+
+👉 To enable ESM:
+
+- Add `"type": "module"` in `package.json`.
+
+```json
+{
+  "type": "module"
+}
+
+```
+
+- Or, use `.mjs` file extension.
+
+---
+
+## 🔹 Summary
+
+- **CJS** → `require` / `module.exports` (default in Node).
+- **ESM** → `import` / `export` (standardized, modern).
+- **NPM** → Package manager for Node, comes pre-installed.
+- **Node.js** → Runtime environment, not a framework.
