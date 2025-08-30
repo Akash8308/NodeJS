@@ -1,2 +1,4 @@
 This folder contains files (or Files structure) from codesandbox.io
 To run these files just import them to codesandbox.io
+	OR
+Open in VSCode and run npm install and then run the program
