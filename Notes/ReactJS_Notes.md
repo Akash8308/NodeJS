@@ -198,3 +198,25 @@ export default App;
 Here our UI will render based on state of isDone variable.
 
 ``` NOTE: here style will not work as the UI is already rendered. For which we can use hooks```
+---
+
+---
+## 🔹 Hooks
+Hooks are functions introduced in React 16.8 that allow the use of state and other React features within functional components.
+Different hooks in React:
+- useState
+- useEffect
+- useContext
+- useReducer
+- useCallback
+- useMemo
+- useRef
+- useLayoutEffect
+- useImperativeHandle
+- useDebugValue
+
+#### Custom Hooks:
+Custom Hooks are JavaScript functions that encapsulate reusable stateful logic. They follow the naming convention of starting with "use" (e.g., useFetchData). They can utilize other built-in Hooks to manage their internal state and effects.
+#### ```Rules of Hooks```:
+- Hooks must only be called from React function components or other custom Hooks.
+- Hooks must be called at the top level of a component or custom Hook, not inside loops, conditions, or nested functions.
