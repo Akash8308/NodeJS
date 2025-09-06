@@ -162,3 +162,39 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<App />);
 
 ```
+
+---
+
+## 🔹 Declarative Programming & State
+
+Declarative Programming, we declare how our UI should look under different situations
+dependant upon `state`.
+
+```jsx
+import React from "react";
+
+var isDone = false;
+
+function strike() {
+  isDone = true;
+}
+
+function unStrike() {
+  isDone = false;
+}
+
+function App() {
+  return (
+    <div>
+      <p style={isDone ? { textDecoration: "line-through" } : null}>Buy milk</p>
+      <button onClick={strike}>Change to strike through</button>
+      <button onClick={unStrike}>Change back</button>
+    </div>
+  );
+}
+
+export default App;
+```
+Here our UI will render based on state of isDone variable.
+
+``` NOTE: here style will not work as the UI is already rendered. For which we can use hooks```
