@@ -36,7 +36,15 @@ function App() {
           <span>Add</span>
         </button>
       </div>
-      <div>{getList()}</div>
+      {/* <div>{getList()}</div> */}
+      {/* OR */}
+      <div>
+        <ul>
+          {todoList.map((element, index) => (
+            <li key={index}>{element}</li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }
