@@ -220,3 +220,10 @@ Custom Hooks are JavaScript functions that encapsulate reusable stateful logic. 
 #### ```Rules of Hooks```:
 - Hooks must only be called from React function components or other custom Hooks.
 - Hooks must be called at the top level of a component or custom Hook, not inside loops, conditions, or nested functions.
+---
+## 🔹 Packages
+
+Some useful packages
+
+- @material-ui/icons : https://www.npmjs.com/package/@material-ui/icons
+  This package provides the Google Material icons packaged as a set of React components.
