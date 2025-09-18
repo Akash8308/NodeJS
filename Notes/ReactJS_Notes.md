@@ -227,3 +227,178 @@ Some useful packages
 
 - @material-ui/icons : https://www.npmjs.com/package/@material-ui/icons
   This package provides the Google Material icons packaged as a set of React components.
+---
+
+---
+
+Got it 👍 Here's the full explanation rewritten in **Markdown format** so you can use it directly in docs, notes, or README:
+
+---
+
+# 🛠 Error Handling in React
+
+In React, error handling can be done in different ways depending on where the error occurs: rendering, event handlers, async code, or API calls.
+
+---
+
+## 🔹 1. Handling Errors in **Event Handlers**
+
+React event handlers can be wrapped in `try/catch`.
+
+```jsx
+function App() {
+  function handleClick() {
+    try {
+      throw new Error("Something went wrong!");
+    } catch (err) {
+      console.error(err.message);
+      alert("An error occurred: " + err.message);
+    }
+  }
+
+  return <button onClick={handleClick}>Click Me</button>;
+}
+```
+
+---
+
+## 🔹 2. Handling Errors with **Error Boundaries** (Rendering Errors)
+
+Error boundaries catch **rendering errors**, preventing the entire app from crashing.
+
+### Create an ErrorBoundary Component
+
+```jsx
+import React from "react";
+
+class ErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError(error) {
+    return { hasError: true };
+  }
+
+  componentDidCatch(error, errorInfo) {
+    console.error("Error caught by boundary:", error, errorInfo);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return <h2>Something went wrong.</h2>;
+    }
+    return this.props.children;
+  }
+}
+
+export default ErrorBoundary;
+```
+
+### Usage
+
+```jsx
+import ErrorBoundary from "./ErrorBoundary";
+import MyComponent from "./MyComponent";
+
+function App() {
+  return (
+    <ErrorBoundary>
+      <MyComponent />
+    </ErrorBoundary>
+  );
+}
+```
+
+> ⚠️ Error Boundaries do **not** catch:
+>
+> * Errors in **event handlers**
+> * **Async errors**
+> * **Server-side rendering**
+
+---
+
+## 🔹 3. Handling Errors in **Async Code (Promises / API Calls)**
+
+Use `try/catch` with `async/await` or `.catch()` for promises.
+
+```jsx
+import React, { useEffect, useState } from "react";
+
+function DataFetcher() {
+  const [data, setData] = useState(null);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        let response = await fetch("https://api.example.com/data");
+        if (!response.ok) throw new Error("Network response was not ok");
+        let result = await response.json();
+        setData(result);
+      } catch (err) {
+        setError(err.message);
+      }
+    }
+
+    fetchData();
+  }, []);
+
+  if (error) return <p style={{ color: "red" }}>Error: {error}</p>;
+  if (!data) return <p>Loading...</p>;
+
+  return <div>{JSON.stringify(data)}</div>;
+}
+```
+
+---
+
+## 🔹 4. Handling Errors with **Custom Hook**
+
+You can create a reusable error handler hook.
+
+```jsx
+import { useState } from "react";
+
+function useErrorHandler() {
+  const [error, setError] = useState(null);
+  const handleError = (err) => setError(err.message || "Unknown error");
+  return [error, handleError];
+}
+```
+
+### Usage
+
+```jsx
+function Component() {
+  const [error, handleError] = useErrorHandler();
+
+  function riskyAction() {
+    try {
+      throw new Error("Something broke!");
+    } catch (err) {
+      handleError(err);
+    }
+  }
+
+  return (
+    <div>
+      {error && <p style={{ color: "red" }}>{error}</p>}
+      <button onClick={riskyAction}>Do Something Risky</button>
+    </div>
+  );
+}
+```
+
+---
+
+## ✅ Summary
+
+* **Event Handlers** → Use `try/catch`.
+* **Rendering Errors** → Use **Error Boundaries**.
+* **Async/API Errors** → Handle with `try/catch` in `async/await`.
+* **Reusable Handling** → Create a **custom hook**.
+
+---
+
