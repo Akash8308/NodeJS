@@ -227,6 +227,7 @@ Some useful packages
 
 - @material-ui/icons : https://www.npmjs.com/package/@material-ui/icons
   This package provides the Google Material icons packaged as a set of React components.
+- @material-ui/core :  https://www.npmjs.com/package/@material-ui/core - This package has been deprecated
 ---
 
 ---
