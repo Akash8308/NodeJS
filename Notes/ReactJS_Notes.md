@@ -403,3 +403,33 @@ function Component() {
 
 ---
 
+---
+
+# React Component Lifecycle
+
+The lifecycle of a React component has **three main phases**:
+
+## 1. Mounting (component is created & inserted in DOM)
+- `constructor()` → initialize state & props
+- `render()` → returns JSX
+- `componentDidMount()` → runs after first render (good for API calls, subscriptions)
+
+## 2. Updating (when props/state changes)
+- `render()` → re-renders UI
+- `componentDidUpdate(prevProps, prevState)` → runs after update (good for side effects)
+
+## 3. Unmounting (when component is removed)
+- `componentWillUnmount()` → cleanup (remove listeners, cancel timers, etc.)
+
+---
+
+# Functional Components with Hooks
+- `useEffect(() => { ... }, [])` → runs like `componentDidMount`
+- `useEffect(() => { ... })` → runs after every render/update
+- `useEffect(() => { ...; return () => {...}}, [])` → cleanup like `componentWillUnmount`
+
+---
+
+👉 Lifecycle helps manage **data fetching, subscriptions, DOM updates, and cleanup** in React apps.
+
+---
